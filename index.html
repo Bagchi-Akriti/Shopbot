@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShopBot | Search once. Compare everywhere.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30"><rect width="32" height="32" rx="9" fill="#17a864"/><path d="M8 9h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H8a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z" fill="#fff"/><path d="M11 14.5h10M11 17.5h6" stroke="#17a864" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <div>
+          <h1>ShopBot</h1>
+          <p>Search once. Compare everywhere.</p>
+        </div>
+      </div>
+      <nav class="top-actions" aria-label="Project information">
+        <button class="ghost" data-open="about">About the startup</button>
+        <button class="ghost" data-open="money">How we make money</button>
+        <button class="ghost" data-open="demo">Demo guide</button>
+        <button class="ghost strong" id="resetBtn">Start fresh</button>
+      </nav>
+    </header>
+
+    <main class="stage">
+      <section class="phone" aria-label="ShopBot chat">
+        <div class="chat-head">
+          <span class="avatar" aria-hidden="true">S</span>
+          <div class="who">
+            <strong>ShopBot</strong>
+            <span>AI shopping assistant &middot; online</span>
+          </div>
+          <span class="demo-pill" title="All prices, stock and delivery times are simulated">Demo data</span>
+        </div>
+
+        <div class="chat" id="chat" role="log" aria-live="polite"></div>
+
+        <div class="composer">
+          <div class="prompts" id="prompts" aria-label="Suggested prompts"></div>
+          <form class="inputrow" id="form" autocomplete="off">
+            <input id="input" type="text" placeholder="Ask for a product, e.g. Find iPhone 17" aria-label="Message ShopBot">
+            <button type="submit" class="send" aria-label="Send message">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path d="M3.4 20.4 21 12 3.4 3.6 3.3 10l12.2 2-12.2 2z" fill="currentColor"/></svg>
+            </button>
+          </form>
+          <p class="disclaimer">Prices and availability shown in this prototype are simulated for demonstration purposes.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Project information">
+    <div class="drawer-head">
+      <div class="tabs" role="tablist">
+        <button role="tab" data-tab="about">About</button>
+        <button role="tab" data-tab="money">Business model</button>
+        <button role="tab" data-tab="demo">Demo guide</button>
+      </div>
+      <button class="close" id="closeDrawer" aria-label="Close panel">&times;</button>
+    </div>
+
+    <div class="panel" data-panel="about">
+      <h2>About the startup</h2>
+      <p class="lead">Search once. Compare everywhere. Buy through one conversation.</p>
+      <p>ShopBot is an AI-powered shopping comparison and checkout assistant. It is not a marketplace.</p>
+      <dl>
+        <dt>Problem</dt>
+        <dd>Consumers waste time checking multiple platforms to find the best deal: search Amazon, search Flipkart, search Croma, compare, decide, then check out.</dd>
+        <dt>Solution</dt>
+        <dd>A conversational assistant that aggregates listings from many platforms and lets people compare, choose a seller and check out in one chat.</dd>
+        <dt>Target customers</dt>
+        <dd>Digital-first Indian consumers aged roughly 18 to 35.</dd>
+        <dt>Initial categories</dt>
+        <dd>Electronics, fashion, home appliances, with groceries and beauty through quick-commerce and beauty platforms.</dd>
+        <dt>Platforms in this demo</dt>
+        <dd>Amazon, Flipkart, Blinkit, Zepto, Instamart, BigBasket, Nykaa, Myntra, Croma, Reliance Digital.</dd>
+        <dt>Alternatives today</dt>
+        <dd>Amazon, Flipkart, Google Shopping, price comparison sites, individual brand websites.</dd>
+        <dt>Differentiation</dt>
+        <dd>A conversation-first experience in a familiar messaging interface, with no tab-hopping.</dd>
+      </dl>
+      <div class="flow-compare">
+        <div><h3>Today</h3><p>Search Amazon &rarr; Search Flipkart &rarr; Search Croma &rarr; Compare prices &rarr; Decide &rarr; Checkout</p></div>
+        <div class="with"><h3>With ShopBot</h3><p>Tell ShopBot what you want &rarr; ShopBot compares options &rarr; You choose &rarr; Simulated checkout</p></div>
+      </div>
+    </div>
+
+    <div class="panel" data-panel="money" hidden>
+      <h2>How we make money</h2>
+      <div class="flow">
+        <span>User</span><i>&rarr;</i><span class="hl">ShopBot</span><i>&rarr;</i><span>Merchant</span>
+      </div>
+      <p>The primary model is a <strong>commission or referral fee</strong>: when a user buys through a partner platform, that platform pays ShopBot a share of the sale. The user pays the same listed price.</p>
+      <h3>Other revenue streams (future)</h3>
+      <ul>
+        <li><strong>Affiliate commission</strong> on completed purchases</li>
+        <li><strong>Sponsored product placement</strong>, always labelled</li>
+        <li><strong>Merchant referral fees</strong> for new customers</li>
+        <li><strong>Premium subscription</strong> for price alerts and deal tracking</li>
+        <li><strong>Merchant analytics</strong> on price position and demand</li>
+      </ul>
+      <p class="note">This prototype does not earn money and does not connect to any real platform, payment system or WhatsApp account. It is a simulation of the experience and the concept.</p>
+    </div>
+
+    <div class="panel" data-panel="demo" hidden>
+      <h2>Demo guide</h2>
+      <p>A five-minute walkthrough. Use the suggested prompts under the chat or type these.</p>
+      <ol class="steps">
+        <li><b>Find me Sony WH-1000XM6</b><span>Four platforms, one answer on price and delivery.</span></li>
+        <li><b>Cheapest</b> <span>then</span> <b>Compare All</b><span>Table with a summary. ShopBot never picks for you.</span></li>
+        <li><b>Buy this</b> <span>&rarr;</span> <b>Confirm Order</b> <span>&rarr;</span> <b>UPI</b> <span>&rarr;</span> <b>Pay</b><span>Simulated checkout and payment.</span></li>
+        <li><b>Where is my order?</b><span>Tracking, with a button to simulate the next update.</span></li>
+        <li><b>Find headphones under &#8377;35,000</b><span>Budget filter, a few relevant picks, not 30.</span></li>
+        <li><b>Amul butter 500g</b> <span>then</span> <b>fastest</b><span>Quick-commerce in minutes, with delivery fees counted.</span></li>
+        <li><b>Find iPhone</b><span>Ambiguous query, ShopBot asks which one.</span></li>
+      </ol>
+    </div>
+  </aside>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

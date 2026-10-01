@@ -1,0 +1,15 @@
+{
+  "name": "shopbot-prototype",
+  "version": "1.0.0",
+  "description": "ShopBot: simulated AI shopping assistant in a WhatsApp-style chat (MBA startup prototype)",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/journey.test.js && node tests/whatsapp.test.js",
+    "start:whatsapp": "node whatsapp/server.js"
+  },
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  }
+}
